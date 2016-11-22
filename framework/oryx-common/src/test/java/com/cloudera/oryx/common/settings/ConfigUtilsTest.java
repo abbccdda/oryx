@@ -86,12 +86,12 @@ public final class ConfigUtilsTest extends OryxTest {
     ConfigUtils.set(map, "temp", Paths.get("/tmp"));
     assertEquals("\"" + cwd.toRealPath(LinkOption.NOFOLLOW_LINKS).toUri() + "\"", map.get("cwd"));
     if (System.getProperty("os.name").toLowerCase().indexOf("win") >= 0) {
-      assertEquals("\"file:///C:/tmp/\"", map.get("temp"));
+      assertEquals("\"file:///C:/tmp", map.get("temp"));
     } else {
       assertEquals("\"file:///tmp/\"", map.get("temp"));
     }
   }
-
+  
   @Test
   public void testPrettyPrint() {
     String pretty = ConfigUtils.prettyPrint(ConfigUtils.getDefault());
